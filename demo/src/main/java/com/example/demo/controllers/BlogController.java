@@ -27,12 +27,28 @@ public class BlogController {
 
         return "blog-main";
     }
+    @GetMapping("/{email}/blog")
+    public String blogMainId(@PathVariable(value = "email") String email, Model model){
+        Iterable<Post> posts = postRepository.findAll();
+        model.addAttribute("posts", posts);
+
+        return "redirect:/blog";
+    }
+
     @GetMapping("/blog/add")
     public String blogAdd(Model model){
         return "new-post";
     }
+
     @PostMapping("/blog/add")
     public String addPost(@RequestParam String title, @RequestParam String anons, @RequestParam String full_text,  Model model){
+        Post post = new Post(title, anons, full_text);
+        postRepository.save(post);
+        return "redirect:/blog";
+    }
+    @PostMapping("/{id}/blog/add")
+    public String addPost(@PathVariable(value = "id") long id,
+                          @RequestParam String title, @RequestParam String anons, @RequestParam String full_text,  Model model){
         Post post = new Post(title, anons, full_text);
         postRepository.save(post);
         return "redirect:/blog";

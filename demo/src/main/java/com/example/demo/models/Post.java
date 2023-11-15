@@ -1,10 +1,8 @@
 package com.example.demo.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import org.springframework.web.bind.annotation.GetMapping;
+import jakarta.persistence.*;
+import org.hibernate.annotations.NaturalId;
+
 
 @Entity
 public class Post {
@@ -12,10 +10,21 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String title, anons, full_text;
+
+    //private Long ownerId;
+
+    @NaturalId
+    private String title;
+    private String anons, full_text;
     private int view;
 
     public Post() {}
+    /*public Post(String title, String anons, String full_text, Long ownerId) {
+        this.title = title;
+        this.anons = anons;
+        this.full_text = full_text;
+        this.ownerId = ownerId;
+    }*/
     public Post(String title, String anons, String full_text) {
         this.title = title;
         this.anons = anons;
