@@ -15,8 +15,6 @@ import org.hibernate.annotations.Persister;
 
 @Entity
 @Table(name = "users")
-
-
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

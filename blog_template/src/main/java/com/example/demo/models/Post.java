@@ -13,8 +13,24 @@ public class Post {
 
     //private Long ownerId;
 
-    @NaturalId
     private String title;
+    private Long author_id;
+
+    public Long getAuthor_id() {
+        return author_id;
+    }
+
+    public void setAuthor_id(Long author_id) {
+        this.author_id = author_id;
+    }
+
+    public Post(String title, Long author_id, String anons, String full_text) {
+        this.title = title;
+        this.author_id = author_id;
+        this.anons = anons;
+        this.full_text = full_text;
+    }
+
     private String anons, full_text;
     private int view;
 
