@@ -1,0 +1,147 @@
+print(f"Привет, {input('Введите ваше имя: ')}!")
+
+
+
+
+import math
+
+d = float(input("Введите диаметр окружности: "))
+L = math.pi * d
+R = d / 2
+S = math.pi * (R ** 2)
+
+print(f"Длина окружности: {L}")
+print(f"Радиус окружности: {R}")
+print(f"Площадь круга: {S}")
+
+
+
+
+
+file_size_bytes = int(input("Введите размер файла в байтах: "))
+
+# Количество полных килобайт
+full_kilobytes = file_size_bytes // 1024
+
+# Количество полных терабайт
+full_terabytes = file_size_bytes // (1024 ** 4)
+
+print(f"Количество полных килобайт: {full_kilobytes}")
+print(f"Количество полных терабайт: {full_terabytes}")
+
+
+
+
+import math
+
+# Ввод данных
+rho = float(input("Введите плотность материала (ρ): "))
+h = float(input("Введите толщину диска (h): "))
+m = float(input("Введите массу диска (m): "))
+
+# Вычисление радиуса
+R = math.sqrt(m / (math.pi * rho * h))
+
+# Вывод результата
+print(f"Радиус диска: {R}")
+
+
+
+
+
+222222222222
+
+
+
+# Ввод данных
+A = int(input("Введите число A: "))
+B = int(input("Введите число B: "))
+C = int(input("Введите число C: "))
+
+# Проверка истинности высказывания
+is_between = (A < B < C) or (C < B < A)
+
+# Вывод результата
+print(f"Число B находится между числами A и C: {is_between}")
+
+
+
+
+# Ввод данных
+number = int(input("Введите целое число: "))
+
+# Определение описания числа
+if number == 0:
+    description = "нулевое число"
+elif number > 0:
+    if number % 2 == 0:
+        description = "положительное чётное число"
+    else:
+        description = "положительное нечётное число"
+else:
+    if number % 2 == 0:
+        description = "отрицательное чётное число"
+    else:
+        description = "отрицательное нечётное число"
+
+# Вывод результата
+print(description)
+
+
+
+import math
+
+def f(x, a, b, c):
+    if a < 0 and c != 0:
+        return (a**2 + b*x + c) / x
+    elif a > 0 and c == 0:
+        return -a / (x - c)
+    else:
+        return a * (math.exp(x) - c)
+
+# Пример использования функции
+a = float(input("Введите значение a: "))
+b = float(input("Введите значение b: "))
+c = float(input("Введите значение c: "))
+x = float(input("Введите значение x: "))
+
+result = f(x, a, b, c)
+print(f"f({x}) = {result}")
+
+
+
+
+
+
+
+
+
+
+# Ввод данных
+initial_orientation = input("Введите исходную ориентацию локатора (С, З, Ю, В): ").upper()
+M1 = int(input("Введите первую команду поворота (1, -1, 2): "))
+M2 = int(input("Введите вторую команду поворота (1, -1, 2): "))
+
+# Возможные ориентации и их индексы
+orientations = ['С', 'В', 'Ю', 'З']
+
+# Определение начальной ориентации
+index = orientations.index(initial_orientation)
+
+# Выполнение команд поворота
+commands = [M1, M2]
+for command in commands:
+    if command == 1:
+        index = (index + 1) % 4
+    elif command == -1:
+        index = (index - 1) % 4
+    elif command == 2:
+        index = (index + 2) % 4
+
+# Определение новой ориентации
+new_orientation = orientations[index]
+
+# Вывод результата
+print(f"Новая ориентация локатора: {new_orientation}")
+
+
